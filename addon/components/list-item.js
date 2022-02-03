@@ -26,7 +26,8 @@ export default class ListItem extends Component {
     }
 
     if (this.args.item.action) {
-      this.args.item.action(...this.args.item.args, e);
+      const args = this.args.item.args || []
+      this.args.item.action(...args, e);
     }
 
     if (!this.args.item.items) {
