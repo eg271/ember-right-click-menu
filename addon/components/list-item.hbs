@@ -1,7 +1,6 @@
 {{! template-lint-disable no-invalid-interactive }}
 <li
   ...attributes
-  {{!-- id={{this.popperId}} --}}
   class="ember-right-click-menu__item
     {{if @item.class @item.class}}
     {{if @item.divider "ember-right-click-menu__item--divider"}}
@@ -18,7 +17,6 @@
   {{/if}}
   {{#if @item.items}}
     <ItemList
-      {{!-- id={{concat "popper-for-" this.popperId}} --}}
       @items={{@item.items}}
       @closeContextMenu={{@closeContextMenu}}
       @hasBlock={{@hasBlock}}
