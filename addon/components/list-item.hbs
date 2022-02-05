@@ -1,13 +1,14 @@
 {{! template-lint-disable no-invalid-interactive }}
 <li
   ...attributes
-  id={{this.popperId}}
+  {{!-- id={{this.popperId}} --}}
   class="ember-right-click-menu__item
     {{if @item.class @item.class}}
     {{if @item.divider "ember-right-click-menu__item--divider"}}
     {{if @item.disabled "ember-right-click-menu__item--disabled"}}
     {{if @hasAnySubItemList "ember-right-click-menu__item--chevron"}}"
   {{on "mouseover" this.mouseEnter}}
+  {{on "mouseleave" this.mouseLeave}}
   {{on "click" this.triggerAction}}
 >
   {{#if @hasBlock}}
@@ -17,10 +18,12 @@
   {{/if}}
   {{#if @item.items}}
     <ItemList
-      id={{concat "popper-for-" this.popperId}}
+      {{!-- id={{concat "popper-for-" this.popperId}} --}}
       @items={{@item.items}}
       @closeContextMenu={{@closeContextMenu}}
       @hasBlock={{@hasBlock}}
+      @show={{this.show_sub_menu}}
+      {{did-insert this.saveElement}}
       as |item|
     >
       {{yield item}}

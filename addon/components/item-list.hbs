@@ -1,10 +1,11 @@
-<ul ...attributes role="tooltip" class="ember-right-click-menu">
+<ul data-show={{@show}} ...attributes role="tooltip" class="ember-right-click-menu">
   {{#each @items as |item|}}
     <ListItem
       @item={{item}}
       @closeContextMenu={{@closeContextMenu}}
       @hasAnySubItemList={{this.hasAnySubItemList}}
-      @hasBlock={{@hasBlock}} as |item|
+      @hasBlock={{@hasBlock}}
+      as |item|
     >
       {{yield item}}
     </ListItem>
