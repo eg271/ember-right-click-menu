@@ -28,7 +28,8 @@ export default class ListItem extends Component {
     let x = element.offsetWidth - 5;
     let y = element.offsetY;
 
-    this.sub_menu_element.style.visibility = 'hidden'
+    // this.sub_menu_element.style.visibility = 'hidden'
+    this.sub_menu_element.style.opacity = 0
     this.sub_menu_element.style.left = x + 'px'
     this.sub_menu_element.style.top = y + 'px'
 
@@ -45,7 +46,8 @@ export default class ListItem extends Component {
       if(right > window.innerWidth){
         this.sub_menu_element.style.left = - this.sub_menu_element.offsetWidth + 'px'
       }
-      this.sub_menu_element.style.visibility = 'visible'
+      // this.sub_menu_element.style.visibility = 'visible'
+      this.sub_menu_element.style.opacity = 1
     })
     
   }

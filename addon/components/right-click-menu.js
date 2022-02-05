@@ -43,7 +43,8 @@ export default class RightClickMenuComponent extends Component {
 
     let { pageX: x, pageY: y } = e;
 
-    this.element.style.visibility = 'hidden'
+    // this.element.style.visibility = 'hidden'
+    this.element.style.opacity = 0
     this.element.style.left = x + 'px'
     this.element.style.top = y + 'px'
 
@@ -55,30 +56,32 @@ export default class RightClickMenuComponent extends Component {
       if((x + this.element.offsetWidth) > window.innerWidth){
         this.element.style.left = (x - this.element.offsetWidth) + 'px'
       }
-      this.element.style.visibility = 'visible'
+      // this.element.style.visibility = 'visible'
+      this.element.style.opacity = 1
     })
   }
 
   @action
   closeContextMenu(e) {
     if (e && this.triggerElement.contains(e.target)) return
+    this.show = false
 
-    if (
-      e &&
-      e.target.nodeName === 'LI' &&
-      !e.path.every((element) => {
+    // if (
+    //   e &&
+    //   e.target.nodeName === 'LI' &&
+    //   !e.path.every((element) => {
 
-        return (
-          !element.className ||
-          !element.className.includes('ember-right-click-menu__item')
-        );
-      })
-    ) {
-      return;
-    }
+    //     return (
+    //       !element.className ||
+    //       !element.className.includes('ember-right-click-menu__item')
+    //     );
+    //   })
+    // ) {
+    //   return;
+    // }
 
-    if (!e || e.type === 'click' || !e.path.includes(this.targetElement)) {
-      this.show = false
-    }
+    // if (!e || e.type === 'click' || !e.path.includes(this.targetElement)) {
+    //   this.show = false
+    // }
   }
 }
